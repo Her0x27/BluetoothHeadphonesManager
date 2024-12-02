@@ -36,17 +36,17 @@ Edit appsettings.json in the installation directory:
 
 # Settings Description
 
-    `DeviceName`: Exact name of your Bluetooth headphones as shown in Windows
-    `InactivityTimeoutMinutes`: Time without audio before disconnecting
-    `AutoConnectEnabled`: Enable/disable automatic connection when audio plays
-    `AudioCheckIntervalSeconds`: How often to check for audio activity
+- `DeviceName`: Exact name of your Bluetooth headphones as shown in Windows
+- `InactivityTimeoutMinutes`: Time without audio before disconnecting
+- `AutoConnectEnabled`: Enable/disable automatic connection when audio plays
+- `AudioCheckIntervalSeconds`: How often to check for audio activity
 
 # Usage
 
 The service starts automatically with Windows. You can manage it through:
 
-    Services app (services.msc)
-    PowerShell commands:
+Services app (services.msc)
+PowerShell commands:
 ```
 Start-Service BluetoothHeadphonesManager
 Stop-Service BluetoothHeadphonesManager
@@ -57,17 +57,15 @@ Restart-Service BluetoothHeadphonesManager
 
 Check Windows Event Viewer > Applications and Services Logs > Bluetooth Headphones Manager
 System Requirements
-
-    Windows 11
-    .NET 7.0 Runtime
-    Bluetooth adapter
-    Administrator rights for installation
+- Windows 11
+- .NET 7.0 Runtime
+- Bluetooth adapter
+- Administrator rights for installation
 
 # Building from Source
-
-    Clone the repository
-    Install .NET 7.0 SDK
-    Run:
+- Clone the repository
+- Install .NET 7.0 SDK
+- Run:
 ```
 dotnet build
 dotnet publish -c Release
