@@ -52,17 +52,12 @@ public class ConfigurationService
         _logger.LogInformation("Settings updated and saved to file");
     }
 
-    public async Task<bool> ValidateSettingsAsync(AppSettings settings)
+    public Task<bool> ValidateSettingsAsync(AppSettings settings)
     {
-        if (string.IsNullOrEmpty(settings.DeviceName))
-            return false;
-
-        if (settings.InactivityTimeoutMinutes <= 0)
-            return false;
-
-        if (settings.AudioCheckIntervalSeconds <= 0)
-            return false;
-
-        return true;
+        var isValid = !string.IsNullOrEmpty(settings.DeviceName) 
+            && settings.InactivityTimeoutMinutes > 0 
+            && settings.AudioCheckIntervalSeconds > 0;
+    
+        return Task.FromResult(isValid);
     }
 }
