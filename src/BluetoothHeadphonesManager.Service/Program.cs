@@ -1,3 +1,6 @@
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+
 public class Program
 {
     public static void Main(string[] args)
@@ -14,7 +17,20 @@ public class Program
                 
                 services.AddSingleton<BluetoothService>();
                 services.AddSingleton<AudioMonitorService>();
+                services.AddSingleton<ConfigurationService>();
                 services.AddHostedService<Worker>();
+
+                services.Configure<HostOptions>(opts => 
+                {
+                    opts.ShutdownTimeout = TimeSpan.FromSeconds(30);
+                });
+            })
+            .ConfigureLogging((hostContext, logging) =>
+            {
+                logging.AddEventLog(settings =>
+                {
+                    settings.SourceName = "Bluetooth Headphones Manager";
+                });
             })
             .Build();
 
