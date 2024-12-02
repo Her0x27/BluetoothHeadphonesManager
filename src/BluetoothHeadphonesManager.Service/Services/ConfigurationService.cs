@@ -35,7 +35,7 @@ public class ConfigurationService
         return _currentSettings;
     }
 
-    public async Task UpdateSettingsAsync(AppSettings newSettings)
+    public Task UpdateSettingsAsync(AppSettings newSettings)
     {
         var jsonConfig = await File.ReadAllTextAsync(_configPath);
         var config = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonConfig);
@@ -52,7 +52,7 @@ public class ConfigurationService
         _logger.LogInformation("Settings updated and saved to file");
     }
 
-    public async Task<bool> ValidateSettingsAsync(AppSettings settings)
+    public Task<bool> ValidateSettingsAsync(AppSettings settings)
     {
         if (string.IsNullOrEmpty(settings.DeviceName))
             return false;
