@@ -1,3 +1,7 @@
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
+
 using Windows.Devices.Enumeration;
 using Windows.Devices.Bluetooth;
 
