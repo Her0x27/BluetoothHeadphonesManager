@@ -36,10 +36,10 @@ Edit appsettings.json in the installation directory:
 
 # Settings Description
 
-    DeviceName: Exact name of your Bluetooth headphones as shown in Windows
-    InactivityTimeoutMinutes: Time without audio before disconnecting
-    AutoConnectEnabled: Enable/disable automatic connection when audio plays
-    AudioCheckIntervalSeconds: How often to check for audio activity
+    `DeviceName`: Exact name of your Bluetooth headphones as shown in Windows
+    `InactivityTimeoutMinutes`: Time without audio before disconnecting
+    `AutoConnectEnabled`: Enable/disable automatic connection when audio plays
+    `AudioCheckIntervalSeconds`: How often to check for audio activity
 
 # Usage
 
