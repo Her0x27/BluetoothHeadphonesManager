@@ -1,9 +1,10 @@
-
 name: Build
 
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main ]
 
@@ -12,10 +13,10 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     
@@ -28,8 +29,17 @@ jobs:
     - name: Publish
       run: dotnet publish src/BluetoothHeadphonesManager.Service/BluetoothHeadphonesManager.Service.csproj -c Release -o publish
     
+    - name: Create ZIP archive
+      run: Compress-Archive -Path "publish\*" -DestinationPath "BluetoothHeadphonesManager.zip"
+    
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: BluetoothHeadphonesManager
-        path: publish/
+        path: BluetoothHeadphonesManager.zip
+    
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: BluetoothHeadphonesManager.zip
