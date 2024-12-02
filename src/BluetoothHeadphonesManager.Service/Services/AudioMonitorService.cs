@@ -1,3 +1,10 @@
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
 using NAudio.CoreAudioApi;
 
 public class AudioMonitorService
