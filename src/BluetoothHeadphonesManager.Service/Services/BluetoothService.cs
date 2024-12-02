@@ -1,7 +1,9 @@
+using System;
+using Windows.Foundation;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
-
 using Windows.Devices.Enumeration;
 using Windows.Devices.Bluetooth;
 
