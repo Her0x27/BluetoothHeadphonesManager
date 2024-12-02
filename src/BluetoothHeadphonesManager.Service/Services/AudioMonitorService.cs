@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using NAudio.CoreAudioApi;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 public class AudioMonitorService
 {
